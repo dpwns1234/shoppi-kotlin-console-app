@@ -1,5 +1,7 @@
 package screen
 
+import data.CartItems
+
 class ShoppingCategory {
     public fun showCategories() {
         val categories: Array<String> = arrayOf("패션", "전자기기", "반려동물용품")
@@ -19,7 +21,8 @@ class ShoppingCategory {
         }
 
         if (inputCategory == "#") {
-            // TODO 1. 장바구니 이동
+            val shoppingCart = ShoppingCart();
+            shoppingCart.showCartItems()
         }
         else {
             // TODO 2. 카테고리 상품 목록 보여주기
@@ -30,6 +33,13 @@ class ShoppingCategory {
             else {
                 showErrorMessage(inputCategory)
             }
+
+            // 장바구니 담기
+            println("""
+                =====================================
+                장바구니에 담을 상품 번호를 선택해주세요.
+            """.trimIndent())
+
         }
     }
 
@@ -37,4 +47,5 @@ class ShoppingCategory {
         println("$inputCategory")
         showCategories()
     }
+
 }
